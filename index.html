@@ -1369,6 +1369,373 @@ footer{
     border: 2px solid #ff4757;
 }
 
+/* ==========================================================================
+   COMMUNITY & YOUTUBE SECTION (RESPONSIVE STYLES)
+   ========================================================================== */
+
+/* Base Section Styling */
+.community-section {
+    padding: 4rem 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.community-section .title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sub-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* ==========================================================================
+   Main Grid Layout (Feedback Left, Youtube Right)
+   ========================================================================== */
+.community-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked by default on Mobile */
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+/* Desktop Layout Switch (Min-width: 992px) */
+@media (min-width: 992px) {
+    .community-grid {
+        grid-template-columns: 1.2fr 0.8fr; /* Feedback wider, YT card right */
+        align-items: start;
+    }
+}
+
+/* ==========================================================================
+   Feedback Container & Testimonials Slider
+   ========================================================================== */
+.feedback-container {
+    width: 100%;
+    min-width: 0; /* Prevents flex/grid overflow issues */
+}
+
+.comments-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.comments-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    width: 100%;
+}
+
+.comment-card {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-icon {
+    font-size: 1.8rem;
+    opacity: 0.4;
+    margin-bottom: 0.75rem;
+}
+
+.comment-text {
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.comment-user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.user-info span {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* Slider Dots Navigation */
+.comments-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
+.comments-nav .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.comments-nav .dot.active {
+    width: 28px;
+    border-radius: 10px;
+    background: #e50914; /* Spider-man / YouTube Red Accent */
+}
+
+/* ==========================================================================
+   YouTube Featured Channel Card
+   ========================================================================== */
+.youtube-card-container {
+    width: 100%;
+}
+
+.youtube-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.youtube-card {
+    position: relative;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,0,0,0.1), rgba(0,0,0,0.4));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.youtube-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(229, 9, 20, 0.3);
+}
+
+.spidey-peek {
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    font-size: 1.8rem;
+    animation: peekAnimation 2s infinite alternate ease-in-out;
+}
+
+@keyframes peekAnimation {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-8px) rotate(10deg); }
+}
+
+.yt-avatar-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.yt-avatar-wrapper img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e50914;
+}
+
+.yt-play-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #e50914;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.yt-info h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.3rem;
+}
+
+.yt-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.spidey-bubble {
+    margin-top: 0.8rem;
+    padding: 0.5rem 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.btn-subscribe {
+    margin-top: 1.25rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: #e50914;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.youtube-card:hover .btn-subscribe {
+    background: #ff1e27;
+}
+
+/* ==========================================================================
+   Dual Video Showcase Section
+   ========================================================================== */
+.video-showcase-container {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.video-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.video-header h3 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 0.5rem;
+}
+
+.video-header p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* Video Grid: 1 Column on Mobile, 2 Columns on Tablet/Desktop */
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Responsive Spider Video Frame */
+.spidey-video-frame {
+    position: relative;
+    background: #0d0d0d;
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Corner Web Embellishments */
+.web-corner {
+    position: absolute;
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.top-left { top: -8px; left: -8px; }
+.top-right { top: -8px; right: -8px; }
+.bottom-left { bottom: -8px; left: -8px; }
+.bottom-right { bottom: -8px; right: -8px; }
+
+/* Responsive 16:9 iFrame Embed Aspect Ratio */
+.iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Aspect Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-caption {
+    padding: 0.8rem 0.4rem 0.2rem 0.4rem;
+}
+
+.video-caption h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Menghindari teks terlalu panjang merusak layout */
+}
+
+/* Optional Small Phone Adjustment */
+@media (max-width: 480px) {
+    .community-section {
+        padding: 2.5rem 1rem;
+    }
+    
+    .comments-slider {
+        padding: 1rem;
+    }
+
+    .spidey-peek {
+        display: none; /* Menyembunyikan elemen opsional agar tidak memakan ruang di layar HP super kecil */
+    }
+}
+
 .user-info h4 {
     margin: 0;
     color: #fff;
@@ -2011,9 +2378,9 @@ footer{
     <a href="https://www.instagram.com/gakenal.atuh/" target="_blank" class="social-icon" data-tooltip="Instagram">
         <i class="fa-brands fa-instagram"></i>
     </a>
-    <!-- <a href="https://twitter.com/" target="_blank" class="social-icon" data-tooltip="Twitter / X">
-        <i class="fa-brands fa-x-twitter"></i>
-    </a> -->
+    <a href="https://youtube.com/" target="_blank" class="social-icon" data-tooltip="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
     <a href="https://wa.me/" target="_blank" class="social-icon" data-tooltip="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -2148,11 +2515,10 @@ footer{
         <!-- Project 1 -->
         <div class="card project-card scroll-anim">
             <div class="project-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Spider Dashboard">
+                <img src="Daarulhikam.png" alt="Spider Dashboard">
             </div>
             <div class="project-content">
-                <h2>Coffee shop</h2>
-                <p></p>
+                <h2>Website Daarulhikam</h2>
                 <button class="project-btn" onclick="openProjectModal('spider-dashboard')">View Project</button>
             </div>
         </div>
@@ -2160,11 +2526,10 @@ footer{
         <!-- Project 2 -->
         <div class="card project-card scroll-anim">
             <div class="project-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80" alt="Marvel Landing Page">
+                <img src="kopee.png" alt="Marvel Landing Page">
             </div>
             <div class="project-content">
-                <h2>Marvel Landing Page</h2>
-                <p>Landing page profil pahlawan super Marvel dengan animasi transisi paralaks visual.</p>
+                <h2>Website kofee</h2>
                 <button class="project-btn" onclick="openProjectModal('marvel-landing')">View Project</button>
             </div>
         </div>
@@ -2172,12 +2537,66 @@ footer{
         <!-- Project 3 -->
         <div class="card project-card scroll-anim">
             <div class="project-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Portfolio Website">
+                <img src="dekorasi.png" alt="Portfolio Website">
             </div>
             <div class="project-content">
-                <h2>Portfolio Website</h2>
-                <p>Website portfolio premium berpenampilan unik menggunakan konsep efek glassmorphism.</p>
+                <h2>Dekorasi Website</h2>
                 <button class="project-btn" onclick="openProjectModal('portfolio-website')">View Project</button>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="card project-card scroll-anim">
+            <div class="project-img-wrapper">
+                <img src="kasepp.png" alt="2D Platformer Game">
+            </div>
+            <div class="project-content">
+                <h2>link tree costume</h2>
+                <button class="project-btn" onclick="openProjectModal('gdevelop-game')">View Project</button>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="card project-card scroll-anim">
+            <div class="project-img-wrapper">
+                <img src="mesjid.png".png" alt="Spider Store E-Commerce">
+            </div>
+            <div class="project-content">
+                <h2>Spider Store E-Commerce</h2>
+                <button class="project-btn" onclick="openProjectModal('spider-e-commerce')">View Project</button>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="card project-card scroll-anim">
+            <div class="project-img-wrapper">
+                <img src="school.png" alt="Sistem Informasi Sekolah">
+            </div>
+            <div class="project-content">
+                <h2>Portal Akademik Sekolah</h2>
+                <button class="project-btn" onclick="openProjectModal('school-portal')">View Project</button>
+            </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="card project-card scroll-anim">
+            <div class="project-img-wrapper">
+                <img src="restaurant.png" alt="Restaurant POS & Menu">
+            </div>
+            <div class="project-content">
+                <h2>Menu Digital Restoran</h2>
+                <button class="project-btn" onclick="openProjectModal('restaurant-menu')">View Project</button>
+            </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="card project-card scroll-anim">
+            <div class="project-img-wrapper">
+                <img src="task-app.png" alt="Spider Task Manager">
+            </div>
+            <div class="project-content">
+                <h2>Spider Task Manager</h2>
+                <button class="project-btn" onclick="openProjectModal('task-manager')">View Project</button>
             </div>
         </div>
 
@@ -2561,37 +2980,86 @@ const totalSlides = dots.length;
 // Database Data Project
 const projectData = {
     'spider-dashboard': {
-        title: "Spider Dashboard",
+        title: "Website Daarulhikam",
         tags: ["HTML/CSS", "JavaScript", "Chart.js"],
-        description: "Dashboard analitik yang dirancang khusus untuk memantau trafik serta metrik performa secara real-time. Memiliki visualisasi chart interaktif dengan skema warna gelap futuristik.",
-        github: "https://website-kofee.vercel.app/",
+        description: "Website ini website yang meempermudah dalam mengelola informasi dan layanan di yayasan.",
+        github: "https://svelte2-ten.vercel.app/",
         images: [
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
             "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80"
         ]
     },
     'marvel-landing': {
-        title: "Landing Page",
+        title: "Website Kofee",
         tags: ["HTML/CSS", "GSAP", "UI Design"],
-        description: "Landing page modern.",
-        github: "https://svelte2-ten.vercel.app/",
+        description: "Website toko kopi dengan tampilan menarik dan fitur pemesanan online. Mambantu konsumen memesan kopi favorit mereka dengan mudah.",
+        github: "https://website-kofee.vercel.app/",
         images: [
             "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
             "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=800&q=80"
         ]
     },
     'portfolio-website': {
-        title: "Portfolio Website",
+        title: "Dekorasi Website",
         tags: ["CSS Glassmorphism", "Responsive", "JavaScript"],
-        description: "Situs web portofolio pribadi berkonsep glassmorphism premium. Dilengkapi dengan navigasi interaktif, animasi *scroll-reveal*, dan integrasi kontak.",
+        description: "Situs web dekorasi berkonsep modern dan menarik. Dilengkapi dengan navigasi interaktif, tata letak responsif, dan galeri visual.",
         github: "https://dekorasi-blush.vercel.app/",
         images: [
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
             "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
         ]
+    },
+    'gdevelop-game': {
+        title: "Game 2D GDevelop",
+        tags: ["GDevelop 5", "Game Dev", "JavaScript"],
+        description: "Game petualangan 2D interaktif dengan mekanik aksi web-slinging. Dibuat menggunakan game engine GDevelop dengan sistem fisika kustom.",
+        github: "https://kasepp.vercel.app/",
+        images: [
+            "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    'spider-e-commerce': {
+        title: "Spider Store E-Commerce",
+        tags: ["React", "Node.js", "Payment Gateway"],
+        description: "Platform e-commerce modern dengan fitur keranjang belanja interaktif, integrasi payment gateway, dan manajemen inventaris produk secara realtime.",
+        github: "https://mesjid-attaqwa.vercel.app/",
+        images: [
+            "https://images.unsplash.com/photo-1556742049-0a67ba81e284?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    'school-portal': {
+        title: "Portal Akademik Sekolah",
+        tags: ["PHP", "MySQL", "Bootstrap"],
+        description: "Sistem informasi manajemen sekolah terpadu yang memfasilitasi pengolahan nilai siswa, pendaftaran murid baru (PPDB), dan absensi digital.",
+        github: "https://github.com/",
+        images: [
+            "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    'restaurant-menu': {
+        title: "Menu Digital Restoran",
+        tags: ["Vue.js", "Firebase", "QR Code"],
+        description: "Aplikasi web interaktif untuk pemesanan makanan via QR Code di meja restoran. Dilengkapi fitur manajemen pesanan kasir (POS).",
+        github: "https://github.com/",
+        images: [
+            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    'task-manager': {
+        title: "Spider Task Manager",
+        tags: ["JavaScript", "LocalStorage", "Tailwind CSS"],
+        description: "Aplikasi manajemen tugas produktivitas harian berkonsep Kanban Board dengan sistem drag-and-drop, label prioritas, dan statistik harian.",
+        github: "https://github.com/",
+        images: [
+            "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80"
+        ]
     }
 };
-
 let currentModalSlide = 0;
 let modalImagesCount = 0;
 
